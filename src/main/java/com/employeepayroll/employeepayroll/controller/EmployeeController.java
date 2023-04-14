@@ -1,6 +1,7 @@
 package com.employeepayroll.employeepayroll.controller;
 
 import com.employeepayroll.employeepayroll.dto.EmployeeDTO;
+import com.employeepayroll.employeepayroll.dto.ResponseDTO;
 import com.employeepayroll.employeepayroll.model.EmployeeData;
 import com.employeepayroll.employeepayroll.services.IEmployeeServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class EmployeeController {
     @PostMapping("/add")
     public EmployeeData addEmployee(@RequestBody EmployeeDTO employeeDTO){
         EmployeeData empData = iEmployeeServices.addEmployee(employeeDTO);
+        ResponseDTO responseDTO = new ResponseDTO("Data Added Successfully",empData);
         return empData;
     }
 }
